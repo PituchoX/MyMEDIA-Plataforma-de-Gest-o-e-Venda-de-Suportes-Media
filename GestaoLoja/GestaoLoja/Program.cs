@@ -7,9 +7,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// NECESSÁRIO EM .NET 8
 builder.Services.AddSingleton(TimeProvider.System);
-builder.Services.AddHttpContextAccessor();   // usado pelo Identity
+builder.Services.AddHttpContextAccessor();   
 
 // DbContext
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
@@ -20,7 +19,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-// Identity (.NET 8)
+// Identity 
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = IdentityConstants.ApplicationScheme;
@@ -36,10 +35,9 @@ builder.Services.AddIdentityCore<ApplicationUser>(options =>
 .AddSignInManager()
 .AddDefaultTokenProviders();
 
-// Email (no-op) para o Register funcionar
+
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
-// Blazor + serviços de Identity para componentes /Account
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
@@ -52,7 +50,7 @@ builder.Services.AddHttpClient();
 
 var app = builder.Build();
 
-// Pipeline
+
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -70,13 +68,12 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseAntiforgery();
 
-// Seed da BD
+
 Inicializacao.SeedDatabase(app.Services);
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
-// Endpoints Identity (/Account/Login, Register, etc.)
 app.MapAdditionalIdentityEndpoints();
 
 app.Run();

@@ -9,10 +9,10 @@ using Microsoft.Extensions.Logging;
 
 namespace RESTfulAPIPWeb.Controllers
 {
-    /// <summary>
+
     /// Controller para vendas/compras da API MyMEDIA
     /// Apenas endpoints para Clientes - Admin/Funcionário gerem vendas na GestaoLoja
-    /// </summary>
+
     [Route("api/[controller]")]
     [ApiController]
     public class VendasController : ControllerBase
@@ -26,9 +26,9 @@ namespace RESTfulAPIPWeb.Controllers
             _logger = logger;
         }
 
-        /// <summary>
+  
         /// Cliente cria uma nova venda/encomenda
-        /// </summary>
+   
         [HttpPost]
         [Authorize(Roles = "Cliente")]
         public async Task<IActionResult> CriarVenda([FromBody] List<ItemVendaDto> itens)
@@ -157,9 +157,9 @@ namespace RESTfulAPIPWeb.Controllers
             });
         }
 
-        /// <summary>
+   
         /// Cliente consulta o histórico das suas compras
-        /// </summary>
+  
         [HttpGet("minhas")]
         [Authorize(Roles = "Cliente")]
         public async Task<IActionResult> MinhasVendas()
@@ -228,9 +228,9 @@ namespace RESTfulAPIPWeb.Controllers
             return Ok(result);
         }
 
-        /// <summary>
+
         /// Regista intenção de pagamento (a venda continua Pendente até admin confirmar)
-        /// </summary>
+  
         [HttpPost("{id}/pagar")]
         [Authorize(Roles = "Cliente")]
         public async Task<IActionResult> RegistarPagamento(int id)
@@ -264,9 +264,9 @@ namespace RESTfulAPIPWeb.Controllers
             });
         }
 
-        /// <summary>
+ 
         /// Debug - verificar estado do cliente (REMOVER EM PRODUÇÃO)
-        /// </summary>
+  
         [HttpGet("debug/cliente-status")]
         [Authorize]
         public async Task<IActionResult> DebugClienteStatus()
@@ -295,9 +295,9 @@ namespace RESTfulAPIPWeb.Controllers
         }
     }
 
-    /// <summary>
+
     /// DTO para item de venda
-    /// </summary>
+
     public class ItemVendaDto
     {
         public int ProdutoId { get; set; }

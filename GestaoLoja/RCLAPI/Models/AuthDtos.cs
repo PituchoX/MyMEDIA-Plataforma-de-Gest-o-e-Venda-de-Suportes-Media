@@ -28,7 +28,6 @@ namespace RCLAPI.Models
         [Compare("Password", ErrorMessage = "As passwords não coincidem")]
         public string ConfirmPassword { get; set; } = "";
 
-        // NIF deixa de ser obrigatório no preenchimento
         public string? NIF { get; set; }
     }
 

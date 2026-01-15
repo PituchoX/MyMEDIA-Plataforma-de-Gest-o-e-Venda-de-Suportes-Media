@@ -7,9 +7,9 @@ using RESTfulAPIPWeb.Entities;
 
 namespace RESTfulAPIPWeb.Controllers
 {
-    /// <summary>
+
     /// Controller para gestão de subcategorias da API MyMEDIA
-    /// </summary>
+
     [Route("api/[controller]")]
     [ApiController]
     public class SubcategoriasController : ControllerBase
@@ -21,9 +21,9 @@ namespace RESTfulAPIPWeb.Controllers
             _context = context;
         }
 
-        /// <summary>
+  
         /// Lista todas as subcategorias
-        /// </summary>
+
         [HttpGet]
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<SubcategoriaDto>>> GetSubcategorias()
@@ -46,9 +46,9 @@ namespace RESTfulAPIPWeb.Controllers
             return Ok(result);
         }
 
-        /// <summary>
+ 
         /// Lista subcategorias de uma categoria específica
-        /// </summary>
+ 
         [HttpGet("categoria/{categoriaId}")]
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<SubcategoriaDto>>> GetSubcategoriasPorCategoria(int categoriaId)
@@ -71,9 +71,9 @@ namespace RESTfulAPIPWeb.Controllers
             return Ok(result);
         }
 
-        /// <summary>
+   
         /// Obtém uma subcategoria pelo ID
-        /// </summary>
+    
         [HttpGet("{id}")]
         [AllowAnonymous]
         public async Task<ActionResult<SubcategoriaDto>> GetSubcategoria(int id)

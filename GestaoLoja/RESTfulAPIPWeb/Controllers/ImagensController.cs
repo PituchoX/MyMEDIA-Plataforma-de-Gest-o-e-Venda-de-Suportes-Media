@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace RESTfulAPIPWeb.Controllers
 {
-    /// <summary>
+ 
     /// Controller para upload de imagens
     /// As imagens são guardadas na pasta da GestaoLoja para serem partilhadas
-    /// </summary>
+
     [Route("api/[controller]")]
     [ApiController]
     public class ImagensController : ControllerBase
@@ -22,9 +22,9 @@ namespace RESTfulAPIPWeb.Controllers
             _config = config;
         }
 
-        /// <summary>
+  
         /// Obtém o caminho da pasta de imagens (partilhada com GestaoLoja)
-        /// </summary>
+   
         private string GetPastaImagens()
         {
             // Prioridade 1: Configuração no appsettings.json
@@ -71,9 +71,9 @@ namespace RESTfulAPIPWeb.Controllers
             return caminhoLocal;
         }
 
-        /// <summary>
+
         /// Upload de imagem de produto (Fornecedor)
-        /// </summary>
+
         [HttpPost("produto")]
         [Authorize(Roles = "Fornecedor")]
         public async Task<IActionResult> UploadImagemProduto(IFormFile ficheiro)
@@ -124,9 +124,9 @@ namespace RESTfulAPIPWeb.Controllers
             }
         }
 
-        /// <summary>
+
         /// Upload de imagem de categoria (Admin/Funcionário)
-        /// </summary>
+
         [HttpPost("categoria")]
         [Authorize(Roles = "Administrador,Funcionário")]
         public async Task<IActionResult> UploadImagemCategoria(IFormFile ficheiro)
@@ -170,9 +170,9 @@ namespace RESTfulAPIPWeb.Controllers
             }
         }
 
-        /// <summary>
+     
         /// Endpoint de diagnóstico para verificar caminhos (apenas em desenvolvimento)
-        /// </summary>
+
         [HttpGet("debug/paths")]
         [AllowAnonymous]
         public IActionResult GetPaths()

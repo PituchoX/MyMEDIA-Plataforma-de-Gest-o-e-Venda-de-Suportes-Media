@@ -6,7 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 // URL da API RESTful
 var apiBaseUrl = builder.Configuration["ApiBaseUrl"] ?? "https://43tc4dk1-7104.uks1.devtunnels.ms/";
 
-// Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
@@ -16,7 +15,7 @@ builder.Services.AddScoped(sp => new HttpClient
     BaseAddress = new Uri(apiBaseUrl)
 });
 
-// Registar serviço de armazenamento local (Browser localStorage)
+// Registar serviço de armazenamento local 
 builder.Services.AddScoped<ILocalStorageService, BrowserStorageService>();
 
 // Registar ApiService com ApiBaseUrl e Storage configurados

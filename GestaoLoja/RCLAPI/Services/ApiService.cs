@@ -686,9 +686,7 @@ namespace RCLAPI.Services
         }
     }
 
-    /// <summary>
-    /// DTO para resposta de upload de imagem
-    /// </summary>
+
     public class ImagemUploadResponseDto
     {
         public bool Success { get; set; }

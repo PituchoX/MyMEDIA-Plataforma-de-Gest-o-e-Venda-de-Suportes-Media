@@ -35,7 +35,7 @@ namespace RCLAPI.Services
             }
             catch
             {
-                // Ignora erros (ex: prerendering)
+                
             }
         }
 
@@ -47,7 +47,7 @@ namespace RCLAPI.Services
             }
             catch
             {
-                // Ignora erros
+                
             }
         }
     }

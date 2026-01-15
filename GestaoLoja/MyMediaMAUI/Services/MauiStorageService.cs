@@ -2,9 +2,7 @@ using RCLAPI.Services;
 
 namespace MyMediaMAUI.Services
 {
-    /// <summary>
-    /// Implementação de armazenamento local usando Preferences do MAUI
-    /// </summary>
+    
     public class MauiStorageService : ILocalStorageService
     {
         public Task<string?> GetItemAsync(string key)

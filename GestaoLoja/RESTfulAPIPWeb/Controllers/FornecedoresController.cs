@@ -6,10 +6,10 @@ using RESTfulAPIPWeb.Dtos;
 
 namespace RESTfulAPIPWeb.Controllers
 {
-    /// <summary>
+
     /// Controller para consulta de fornecedores da API MyMEDIA
     /// Admin/Funcionário gerem fornecedores na aplicação GestaoLoja
-    /// </summary>
+
     [Authorize(Roles = "Administrador,Funcionário")]
     [Route("api/[controller]")]
     [ApiController]
@@ -22,9 +22,9 @@ namespace RESTfulAPIPWeb.Controllers
             _context = context;
         }
 
-        /// <summary>
+
         /// Lista todos os fornecedores
-        /// </summary>
+  
         [HttpGet]
         public async Task<ActionResult<IEnumerable<FornecedorDto>>> GetFornecedores()
         {
@@ -45,9 +45,9 @@ namespace RESTfulAPIPWeb.Controllers
             return Ok(result);
         }
 
-        /// <summary>
+
         /// Obtém um fornecedor pelo ID
-        /// </summary>
+
         [HttpGet("{id}")]
         public async Task<ActionResult<FornecedorDto>> GetFornecedor(string id)
         {
@@ -69,9 +69,9 @@ namespace RESTfulAPIPWeb.Controllers
             });
         }
 
-        /// <summary>
+
         /// Lista produtos de um fornecedor específico
-        /// </summary>
+
         [HttpGet("{id}/produtos")]
         public async Task<ActionResult<IEnumerable<ProdutoDto>>> GetProdutosDoFornecedor(string id)
         {

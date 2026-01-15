@@ -43,7 +43,7 @@ namespace GestaoLoja.Data
             app.UseStaticFiles();
             app.UseAntiforgery();
 
-            // SEED DA BD (agora na ordem correta)
+            
             Inicializacao.SeedDatabase(app.Services);
 
             app.MapRazorComponents<App>()

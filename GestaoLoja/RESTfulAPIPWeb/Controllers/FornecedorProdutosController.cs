@@ -22,9 +22,9 @@ namespace RESTfulAPIPWeb.Controllers
             _logger = logger;
         }
 
-        /// <summary>
+
         /// Obtém o fornecedor do utilizador atual - BUSCA POR EMAIL para garantir consistência
-        /// </summary>
+
         private async Task<Fornecedor?> GetFornecedorAtual()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -39,7 +39,7 @@ namespace RESTfulAPIPWeb.Controllers
 
             Fornecedor? fornecedor = null;
 
-            // PRIORIDADE 1: Buscar pelo EMAIL (mais confiável entre diferentes sistemas)
+            // PRIORIDADE 1: Buscar pelo EMAIL 
             if (!string.IsNullOrEmpty(userEmail))
             {
                 fornecedor = await _context.Fornecedores
@@ -91,9 +91,9 @@ namespace RESTfulAPIPWeb.Controllers
             return null;
         }
 
-        /// <summary>
+
         /// Lista os produtos do fornecedor atual
-        /// </summary>
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProdutoDto>>> GetMeusProdutos()
         {

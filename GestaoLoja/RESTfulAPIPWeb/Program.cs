@@ -9,14 +9,14 @@ using RESTfulAPIPWeb.Repositories.Interfaces;
 using RESTfulAPIPWeb.Repositories.Services;
 using System.Text;
 using System.Text.Json.Serialization;
-using Microsoft.Extensions.FileProviders; // <--- FALTA ESTE
+using Microsoft.Extensions.FileProviders; 
 using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ----------------------------------------------------
+
 // 1. Configurar Base de Dados (AppDbContext)
-// ----------------------------------------------------
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection"),
@@ -28,9 +28,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     )
 );
 
-// ----------------------------------------------------
+
 // 2. Configurar Identity
-// ----------------------------------------------------
+
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
@@ -38,9 +38,9 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 .AddEntityFrameworkStores<AppDbContext>()
 .AddDefaultTokenProviders();
 
-// ----------------------------------------------------
+
 // 3. Adicionar Controladores com opções JSON
-// ----------------------------------------------------
+
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
@@ -48,9 +48,9 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
     });
 
-// ----------------------------------------------------
+
 // 4. Swagger (documentação da API)
-// ----------------------------------------------------
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -81,16 +81,16 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// ----------------------------------------------------
+
 // 5. Injeção de Dependências dos Repositórios
-// ----------------------------------------------------
+
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddScoped<IModoEntregaRepository, ModoEntregaRepository>();
 
-// ----------------------------------------------------
+
 // 6. Ativar CORS
-// ----------------------------------------------------
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("allowAll",
@@ -100,9 +100,9 @@ builder.Services.AddCors(options =>
         );
 });
 
-// ----------------------------------------------------
+
 // 7. Configurar JWT Authentication
-// ----------------------------------------------------
+
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var key = Encoding.UTF8.GetBytes(jwtSettings["Key"] ?? "DefaultSecretKeyForDevelopment123!");
 
@@ -130,9 +130,9 @@ builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
-// ----------------------------------------------------
-// 8. Swagger (disponível em Development)
-// ----------------------------------------------------
+
+// 8. Swagger
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -142,9 +142,8 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-// ----------------------------------------------------
 // 9. Middleware HTTP
-// ----------------------------------------------------
+
 app.UseHttpsRedirection();
 
 app.UseCors("allowAll");

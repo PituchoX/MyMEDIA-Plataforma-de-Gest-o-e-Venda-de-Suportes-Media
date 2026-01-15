@@ -32,7 +32,7 @@
     </div>
 </div>
 
-<!-- SLIDER DE SUBCATEGORIAS (aparece quando uma categoria está selecionada) -->
+<!-- SLIDER DE SUBCATEGORIAS  -->
 @if (categoriaSelecionada != null && subcategorias != null && subcategorias.Any())
 {
     <div class="subcategorias-slider">
@@ -234,7 +234,7 @@
         if (string.IsNullOrEmpty(imagem))
             return "img/noproductstrans.png";
         
-        // Se já é URL completa
+       
         if (imagem.StartsWith("http"))
             return imagem;
         

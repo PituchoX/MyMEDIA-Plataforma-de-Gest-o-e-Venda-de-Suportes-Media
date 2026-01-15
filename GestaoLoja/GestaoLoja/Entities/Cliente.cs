@@ -10,7 +10,7 @@ namespace GestaoLoja.Entities
         public string ApplicationUserId { get; set; } = default!;
         public ApplicationUser? ApplicationUser { get; set; }
 
-        // Dados próprios do cliente (exceto Nome)
+        // Dados próprios do cliente 
         public string NIF { get; set; } = "";
         public string Estado { get; set; } = "Pendente";
 

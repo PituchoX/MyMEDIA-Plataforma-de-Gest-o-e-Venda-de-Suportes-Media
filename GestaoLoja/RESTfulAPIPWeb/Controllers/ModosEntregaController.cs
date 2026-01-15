@@ -5,10 +5,10 @@ using RESTfulAPIPWeb.Repositories.Interfaces;
 
 namespace RESTfulAPIPWeb.Controllers
 {
-    /// <summary>
+
     /// Controller para consulta de modos de entrega da API MyMEDIA
     /// Admin/Funcionário gerem modos de entrega na aplicação GestaoLoja
-    /// </summary>
+
     [Route("api/[controller]")]
     [ApiController]
     public class ModosEntregaController : ControllerBase
@@ -20,9 +20,9 @@ namespace RESTfulAPIPWeb.Controllers
             _repo = repo;
         }
 
-        /// <summary>
+
         /// Lista todos os modos de entrega
-        /// </summary>
+   
         [HttpGet]
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ModoEntregaDto>>> GetModosEntrega()
@@ -39,9 +39,9 @@ namespace RESTfulAPIPWeb.Controllers
             return Ok(result);
         }
 
-        /// <summary>
+  
         /// Obtém um modo de entrega pelo ID
-        /// </summary>
+
         [HttpGet("{id}")]
         [AllowAnonymous]
         public async Task<ActionResult<ModoEntregaDto>> GetModoEntrega(int id)

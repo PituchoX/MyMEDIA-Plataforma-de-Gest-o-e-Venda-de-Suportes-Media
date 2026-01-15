@@ -4,10 +4,10 @@
     {
         public int Id { get; set; }
 
-        public int? VendaId { get; set; }      // <- AGORA É OPCIONAL
+        public int? VendaId { get; set; }      
         public Vendas? Venda { get; set; }
 
-        public int? ProdutoId { get; set; }    // <- AGORA É OPCIONAL
+        public int? ProdutoId { get; set; }   
         public Produtos? Produto { get; set; }
 
         public int Quantidade { get; set; }

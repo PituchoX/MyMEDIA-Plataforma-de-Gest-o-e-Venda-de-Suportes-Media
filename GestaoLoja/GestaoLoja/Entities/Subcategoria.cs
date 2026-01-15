@@ -1,9 +1,6 @@
 namespace GestaoLoja.Entities
 {
-    /// <summary>
-    /// Subcategoria permite hierarquia dentro de uma categoria
-    /// Exemplo: Categoria "Filmes" -> Subcategorias "Ação", "Comédia", "Drama"
-    /// </summary>
+    
     public class Subcategoria
     {
         public int Id { get; set; }

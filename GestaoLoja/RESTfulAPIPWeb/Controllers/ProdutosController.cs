@@ -7,9 +7,9 @@ using RESTfulAPIPWeb.Repositories.Interfaces;
 
 namespace RESTfulAPIPWeb.Controllers
 {
-    /// <summary>
+
     /// Controller para consulta de produtos da API MyMEDIA
-    /// </summary>
+
     [Route("api/[controller]")]
     [ApiController]
     public class ProdutosController : ControllerBase
@@ -23,9 +23,9 @@ namespace RESTfulAPIPWeb.Controllers
             _context = context;
         }
 
-        /// <summary>
+
         /// Lista todos os produtos ATIVOS
-        /// </summary>
+   
         [HttpGet]
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ProdutoDto>>> GetProdutos()
@@ -61,9 +61,9 @@ namespace RESTfulAPIPWeb.Controllers
             return Ok(result);
         }
 
-        /// <summary>
+    
         /// Pesquisa produtos por nome ou categoria
-        /// </summary>
+   
         [HttpGet("pesquisa")]
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ProdutoDto>>> PesquisarProdutos([FromQuery] string q)
@@ -107,9 +107,9 @@ namespace RESTfulAPIPWeb.Controllers
             return Ok(result);
         }
 
-        /// <summary>
+ 
         /// Lista produtos por categoria
-        /// </summary>
+
         [HttpGet("categoria/{categoriaId}")]
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ProdutoDto>>> GetProdutosPorCategoria(int categoriaId)
@@ -145,9 +145,9 @@ namespace RESTfulAPIPWeb.Controllers
             return Ok(result);
         }
 
-        /// <summary>
+
         /// Lista produtos por subcategoria
-        /// </summary>
+
         [HttpGet("subcategoria/{subcategoriaId}")]
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ProdutoDto>>> GetProdutosPorSubcategoria(int subcategoriaId)
@@ -183,9 +183,9 @@ namespace RESTfulAPIPWeb.Controllers
             return Ok(result);
         }
 
-        /// <summary>
+   
         /// Obtém produto em destaque (aleatório)
-        /// </summary>
+ 
         [HttpGet("destaque")]
         [AllowAnonymous]
         public async Task<ActionResult<ProdutoDto>> GetProdutoDestaque()
@@ -225,9 +225,9 @@ namespace RESTfulAPIPWeb.Controllers
             });
         }
 
-        /// <summary>
+
         /// Obtém um produto pelo ID
-        /// </summary>
+   
         [HttpGet("{id}")]
         [AllowAnonymous]
         public async Task<ActionResult<ProdutoDto>> GetProduto(int id)

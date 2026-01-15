@@ -5,10 +5,7 @@ using RESTfulAPIPWeb.Repositories.Interfaces;
 
 namespace RESTfulAPIPWeb.Controllers
 {
-    /// <summary>
-    /// Controller para consulta de categorias da API MyMEDIA
-    /// Admin/Funcionário gerem categorias na aplicação GestaoLoja
-    /// </summary>
+   
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriasController : ControllerBase
@@ -20,9 +17,7 @@ namespace RESTfulAPIPWeb.Controllers
             _repo = repo;
         }
 
-        /// <summary>
-        /// Lista todas as categorias
-        /// </summary>
+      
         [HttpGet]
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<CategoriaDto>>> GetCategorias()
@@ -38,9 +33,9 @@ namespace RESTfulAPIPWeb.Controllers
             return Ok(result);
         }
 
-        /// <summary>
+
         /// Obtém uma categoria pelo ID
-        /// </summary>
+
         [HttpGet("{id}")]
         [AllowAnonymous]
         public async Task<ActionResult<CategoriaDto>> GetCategoria(int id)

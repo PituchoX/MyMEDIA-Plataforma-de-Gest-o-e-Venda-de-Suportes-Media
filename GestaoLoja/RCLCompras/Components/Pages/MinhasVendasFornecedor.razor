@@ -52,7 +52,7 @@
     }
     else
     {
-        <!-- Resumo - Responsivo (apenas vendas confirmadas e expedidas) -->
+        <!-- Resumo - Responsivo -->
         <div class="row g-2 mb-3">
             <div class="col-4">
                 <div class="card bg-primary text-white h-100">
@@ -80,7 +80,7 @@
             </div>
         </div>
 
-        <!-- Vista Desktop (tabela) - escondida em mobile -->
+        <!-- Vista Desktop -->
         <div class="card d-none d-md-block">
             <div class="card-header py-2">
                 <i class="bi bi-list me-2"></i>Lista de Vendas
@@ -153,7 +153,7 @@
                 </div>
             }
             
-            <!-- Total geral mobile (apenas vendas confirmadas e expedidas) -->
+            <!-- Total geral mobile  -->
             <div class="card bg-light">
                 <div class="card-body p-2 d-flex justify-content-between align-items-center">
                     <strong>Total Geral:</strong>
@@ -168,14 +168,14 @@
     private List<VendaFornecedorDto>? vendas;
     private bool carregando = true;
 
-    // Vendas válidas para cálculo de totais (exclui Rejeitadas e Canceladas)
+    // Vendas válidas para cálculo de totais
     private IEnumerable<VendaFornecedorDto> VendasValidas => 
         vendas?.Where(v => v.Estado == "Confirmada" || v.Estado == "Expedida") 
         ?? Enumerable.Empty<VendaFornecedorDto>();
 
     protected override async Task OnInitializedAsync()
     {
-        // Aguardar que a API inicialize (restaurar sessão do localStorage)
+        // Aguardar que a API inicialize 
         await Api.InitializeAsync();
         carregando = false;
         

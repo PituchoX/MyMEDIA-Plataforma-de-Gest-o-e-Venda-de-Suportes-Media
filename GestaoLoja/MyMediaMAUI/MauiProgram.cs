@@ -9,12 +9,9 @@ namespace MyMediaMAUI
         // ============================================================
         // URL da API RESTful
         // ============================================================
-        // O Dev Tunnel já está configurado!
-        // Certifica-te que a API (RESTfulAPIPWeb) está a correr
-        // antes de iniciar o MAUI.
-        // ============================================================
+ 
         
-        // URL do Dev Tunnel (já configurado)
+        // URL do Dev Tunnel
         public const string ApiBaseUrl = "https://43tc4dk1-7104.uks1.devtunnels.ms/";
 
         public static MauiApp CreateMauiApp()
@@ -44,10 +41,10 @@ namespace MyMediaMAUI
                 };
             });
 
-            // Registar serviço de armazenamento local (MAUI Preferences)
+
             builder.Services.AddSingleton<ILocalStorageService, MauiStorageService>();
 
-            // Registar ApiService com ApiBaseUrl e Storage configurados
+
             builder.Services.AddScoped(sp =>
             {
                 var httpClient = sp.GetRequiredService<HttpClient>();

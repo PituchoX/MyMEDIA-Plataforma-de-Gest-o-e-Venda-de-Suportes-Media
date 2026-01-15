@@ -8,10 +8,9 @@ using RESTfulAPIPWeb.Entities;
 
 namespace RESTfulAPIPWeb.Controllers
 {
-    /// <summary>
+
     /// Controller para consulta de clientes da API MyMEDIA
     /// Admin/Funcionário gerem clientes na aplicação GestaoLoja
-    /// </summary>
     [Authorize(Roles = "Administrador,Funcionário")]
     [Route("api/[controller]")]
     [ApiController]
@@ -24,9 +23,9 @@ namespace RESTfulAPIPWeb.Controllers
             _context = context;
         }
 
-        /// <summary>
+
         /// Lista todos os clientes registados
-        /// </summary>
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ClienteDto>>> GetClientes()
         {
@@ -47,9 +46,9 @@ namespace RESTfulAPIPWeb.Controllers
             return Ok(result);
         }
 
-        /// <summary>
+
         /// Obtém um cliente pelo ID
-        /// </summary>
+
         [HttpGet("{id}")]
         public async Task<ActionResult<ClienteDto>> GetCliente(string id)
         {
@@ -71,9 +70,9 @@ namespace RESTfulAPIPWeb.Controllers
             });
         }
 
-        /// <summary>
+ 
         /// Lista vendas de um cliente específico
-        /// </summary>
+ 
         [HttpGet("{id}/vendas")]
         public async Task<IActionResult> GetVendasDoCliente(string id)
         {

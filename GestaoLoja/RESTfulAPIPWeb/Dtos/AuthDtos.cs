@@ -2,9 +2,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RESTfulAPIPWeb.Dtos
 {
-    /// <summary>
+
     /// DTO para resposta de login com token JWT
-    /// </summary>
+
     public class LoginResponseDto
     {
         public string Token { get; set; } = "";
@@ -12,9 +12,9 @@ namespace RESTfulAPIPWeb.Dtos
         public UserInfoDto User { get; set; } = new();
     }
 
-    /// <summary>
+
     /// Informações básicas do utilizador
-    /// </summary>
+
     public class UserInfoDto
     {
         public string Id { get; set; } = "";
@@ -24,9 +24,9 @@ namespace RESTfulAPIPWeb.Dtos
         public IList<string> Roles { get; set; } = new List<string>();
     }
 
-    /// <summary>
+  
     /// DTO para login
-    /// </summary>
+
     public class LoginRequestDto
     {
         [Required(ErrorMessage = "Email é obrigatório")]
@@ -37,9 +37,9 @@ namespace RESTfulAPIPWeb.Dtos
         public string Password { get; set; } = "";
     }
 
-    /// <summary>
+
     /// DTO para registo de Cliente
-    /// </summary>
+
     public class RegisterClienteRequestDto
     {
         [Required(ErrorMessage = "Nome é obrigatório")]
@@ -58,9 +58,9 @@ namespace RESTfulAPIPWeb.Dtos
         public string Password { get; set; } = "";
     }
 
-    /// <summary>
+
     /// DTO para registo de Fornecedor
-    /// </summary>
+
     public class RegisterFornecedorRequestDto
     {
         [Required(ErrorMessage = "Nome do responsável é obrigatório")]
@@ -84,9 +84,9 @@ namespace RESTfulAPIPWeb.Dtos
         public string Password { get; set; } = "";
     }
 
-    /// <summary>
+
     /// Resposta genérica da API
-    /// </summary>
+
     public class ApiResponseDto
     {
         public bool Success { get; set; }
@@ -94,9 +94,9 @@ namespace RESTfulAPIPWeb.Dtos
         public object? Data { get; set; }
     }
 
-    /// <summary>
+ 
     /// Resposta de erro da API
-    /// </summary>
+
     public class ApiErrorDto
     {
         public bool Success { get; set; } = false;
