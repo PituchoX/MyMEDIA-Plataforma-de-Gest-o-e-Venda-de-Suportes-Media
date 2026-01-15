@@ -6,7 +6,7 @@
         public string Nome { get; set; } = string.Empty;
         public string? Imagem { get; set; }
 
-   
+    //
         public ICollection<Subcategoria>? Subcategorias { get; set; }
 
       
